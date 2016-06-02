@@ -1,0 +1,68 @@
+{
+  "name": "jspm-test",
+  "version": "1.0.0",
+  "description": "jspm es6 project",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "jspm bundle src/app.js bundle/main.bundle.js --minify --inject",
+    "serve": "jspm depcache src/app.js && jspm unbundle && browser-sync start --server --files '**/*.*'",
+    "jspminstall": "jspm install"
+  },
+  "keywords": [
+    "jspm",
+    "es6"
+  ],
+  "author": "166-mmx &lt;michal@biniek.pl&gt;",
+  "license": "MIT",
+  "jspm": {
+    "name": "app",
+    "dependencies": {
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "json": "github:systemjs/plugin-json@^0.1.0",
+      "text": "github:systemjs/plugin-text@^0.0.4",
+      "scss": "github:mobilexag/plugin-sass@^0.2.1",
+      "three": "npm:three@^0.77.1"
+    },
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.5"
+    },
+    "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
+      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
+    },
+    "overrides": {
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:sass.js@0.9.10": {
+        "map": {
+          "ws": "@empty"
+        },
+        "meta": {
+          "dist/sass.worker.js": {}
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "graceful-fs": "^4.1.3",
+    "jspm": "^0.17.0-beta.7"
+  }
+}
